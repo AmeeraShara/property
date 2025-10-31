@@ -1,0 +1,361 @@
+/* Land Post Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.land-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+}
+/* Blue Navbar */
+.blue-navbar {
+    background-color: #1167B1; 
+    padding: 10px 0;
+}
+
+.blue-navbar .container {
+    display: flex;
+    gap: 20px;
+}
+
+.blue-navbar .nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.blue-navbar .nav-link:hover {
+    text-decoration: underline;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.breadcrumb a {
+    color: #0066B3;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: #005094;
+    text-decoration: underline;
+}
+
+.breadcrumb .separator {
+    margin: 0 8px;
+    color: #999;
+}
+
+/* Back Button */
+.back-button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 1px solid #8B5A3C;
+    border-radius: 4px;
+    color: #8B5A3C;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #8B5A3C;
+    color: #fff;
+    border-color: #8B5A3C;
+}
+
+/* Progress Steps */
+.progress-steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #9E9E9E;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    z-index: 2;
+}
+
+.step.active .step-circle {
+    background-color: #8B5A3C;
+}
+
+.step-line {
+    width: 200px;
+    height: 3px;
+    background-color: #9E9E9E;
+    margin: 0 -1px;
+}
+
+.step.active .step-line {
+    background-color: #8B5A3C;
+}
+
+/* Form Sections */
+.form-section {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Basic Details Grid */
+.basic-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.field-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.field-group.unit-select {
+    align-items: flex-end;
+}
+
+.field-group label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.field-group input,
+.field-group select,
+.field-group textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: 'Arial', sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+.field-group input:focus,
+.field-group select:focus,
+.field-group textarea:focus {
+    outline: none;
+    border-color: #0066B3;
+    box-shadow: 0 0 0 3px rgba(0, 102, 179, 0.1);
+}
+
+.field-group input::placeholder,
+.field-group textarea::placeholder {
+    color: #999;
+}
+
+.field-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+}
+
+/* Price Details Grid */
+.price-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.feature-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+.feature-checkbox:hover {
+    border-color: #0066B3;
+    background-color: #f0f7ff;
+}
+
+.feature-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #0066B3;
+}
+
+.feature-checkbox .icon {
+    font-size: 20px;
+    color: #8B5A3C;
+}
+
+.feature-checkbox input[type="checkbox"]:checked ~ .label {
+    color: #0066B3;
+    font-weight: 500;
+}
+
+.feature-checkbox:has(input[type="checkbox"]:checked) {
+    border-color: #0066B3;
+    background-color: #f0f7ff;
+}
+
+/* Ad Details Grid */
+.ad-details-grid {
+    display: grid;
+    gap: 20px;
+}
+
+/* Form Footer */
+.form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.form-footer .back-button {
+    padding: 12px 30px;
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.form-footer .back-button:hover {
+    background-color: #e9ecef;
+    color: #333;
+    border-color: #999;
+}
+
+.continue-button {
+    padding: 12px 40px;
+    background-color: #0066B3;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.continue-button:hover {
+    background-color: #005094;
+    box-shadow: 0 4px 8px rgba(0, 102, 179, 0.3);
+}
+
+.page-counter {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .land-container {
+        padding: 15px;
+    }
+
+    .step-line {
+        width: 100px;
+    }
+
+    .basic-details-grid,
+    .price-details-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-footer {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .form-footer .back-button,
+    .continue-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .step-circle {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+
+    .step-line {
+        width: 60px;
+    }
+}
