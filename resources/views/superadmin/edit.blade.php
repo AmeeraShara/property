@@ -516,6 +516,17 @@
 
 
 
+                                        {{-- Price Unit --}}
+                    <div class="col-12 col-md-4 mt-1">
+                        <label class="form-label">Price Unit</label>
+                        <select name="price_unit" class="form-select form-select-sm">
+                            @foreach(['LKR','USD','EUR'] as $unit)
+                            <option value="{{ $unit }}" {{ $post->price_unit == $unit ? 'selected' : '' }}>
+                                {{ $unit }}
+                            </option>
+                            @endforeach
+                        </select>
+                    </div>
 
                     {{-- Checkboxes --}}
                     <div class="col-12 d-flex flex-wrap gap-3 mt-2">
