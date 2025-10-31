@@ -156,13 +156,9 @@
                     </div>
                 </div>
 
-
-
-
-
             </div>
 
-            <div class="card border-dark text-dark bg-white mt-2" style="font-size:0.85rem;">
+<div class="card border-dark text-dark bg-white mt-2" style="font-size:0.85rem;">
     <div class="card-header fw-bold">Property Images</div>
     <div class="card-body p-2">
         {{-- Existing Images --}}
@@ -171,24 +167,36 @@
             <div class="d-flex flex-wrap gap-2">
                 @php
                     $images = $property->images ? json_decode($property->images, true) : [];
+                    if (!is_array($images)) {
+                        $images = $images ? [$images] : [];
+                    }
                 @endphp
+
                 @foreach($images as $index => $image)
                     <div class="position-relative" style="width: 80px; height: 80px;">
-                        <img src="{{ asset('images/' . $image) }}" class="img-fluid rounded" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="{{ asset('images/' . $image) }}" class="img-fluid rounded" style="width: 100%; height: 100%; object-fit: cover;" alt="Property Image">
                         <button type="button" class="btn btn-sm btn-danger position-absolute top-0 end-0 remove-image" data-index="{{ $index }}" style="padding: 0.1rem 0.25rem;">&times;</button>
                     </div>
                 @endforeach
             </div>
         </div>
 
+        {{-- Hidden Input to Store Existing Images --}}
+        <input type="hidden" name="existing_images" id="existing_images" value='@json($images)'>
+
         {{-- Upload New Images --}}
         <div class="mb-2">
             <label class="form-label fw-bold">Add / Replace Images</label>
-            <input type="file" name="images[]" class="form-control form-control-sm" multiple>
+            <input type="file" name="images[]" class="form-control form-control-sm" multiple accept="image/*">
             <small class="text-muted">You can upload multiple images. Existing images will remain unless removed.</small>
         </div>
+
+        {{-- Optional Preview for New Images --}}
+        <div class="row g-2 mt-2" id="newImagesPreview"></div>
     </div>
 </div>
+
+
 
         </div>
 

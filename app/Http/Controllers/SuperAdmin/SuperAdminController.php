@@ -269,12 +269,17 @@ $data['videos'] = json_encode($videos);
         return view('superadmin.properties-edit', compact('property'));
     }
 
- public function updateProperty(Request $request, $id)
+public function updateProperty(Request $request, $id)
 {
     $property = DB::table('properties')->where('id', $id)->first();
 
-    // Get existing images
+    // Decode existing images safely
     $existingImages = $property->images ? json_decode($property->images, true) : [];
+
+    // Ensure it's an array
+    if (!is_array($existingImages)) {
+        $existingImages = $existingImages ? [$existingImages] : [];
+    }
 
     // Handle new uploaded images
     if ($request->hasFile('images')) {

@@ -184,57 +184,75 @@
                         @enderror
                     </div>
 
+                    
                     {{-- Property Subtype --}}
                     <div class="col-12 col-md-4 mt-1">
                         <label class="form-label">Property Subtype</label>
                         <input type="text" name="property_subtype" class="form-control form-control-sm"
                             value="{{ $post->property_subtype }}">
                         @error('property_subtype')
-                        <span class="text-danger small">{{ $message }}</span>
+                            <span class="text-danger small">{{ $message }}</span>
                         @enderror
                     </div>
-                    {{-- Other Dynamic Fields --}}
-                    @foreach([
-                    ['name'=>'district','label'=>'District','placeholder'=>'Enter District'],
-                    ['name'=>'city','label'=>'City','placeholder'=>'Enter City'],
-                    ['name'=>'street','label'=>'Street','placeholder'=>'Enter Street'],
-                    ['name'=>'ad_title','label'=>'Ad Title','placeholder'=>'Enter Ad Title'],
-                    ['name'=>'ad_description','label'=>'Description','placeholder'=>'Enter Description','type'=>'textarea'],
-                    ['name'=>'bedrooms','label'=>'Bedrooms','placeholder'=>'Enter Bedrooms','type'=>'number'],
-                    ['name'=>'bathrooms','label'=>'Bathrooms','placeholder'=>'Enter Bathrooms','type'=>'number'],
-                    ['name'=>'area','label'=>'Area','placeholder'=>'Enter Area'],
-                    {{-- ['name'=>'land_area','label'=>'Land Area','placeholder'=>'Enter Land Area'],--}}
-                    ['name'=>'floor_area','label'=>'Floor Area','placeholder'=>'Enter Floor Area'],
-                    ['name'=>'num_floors','label'=>'Number of Floors','placeholder'=>'Enter Floors'],
-                    ['name'=>'floor_level','label'=>'Floor Level','placeholder'=>'Enter Floor Level'],
-                    ['name'=>'commercial_type','label'=>'Commercial Type','placeholder'=>'Enter Type'],
-                    ['name'=>'size','label'=>'Size','placeholder'=>'Enter Size'],
-                    ['name'=>'location','label'=>'Location','placeholder'=>'Enter Location'],
-                    ['name'=>'contact_name','label'=>'Contact Name','placeholder'=>'Enter Name'],
-                    ['name'=>'contact_email','label'=>'Contact Email','placeholder'=>'Enter Email','type'=>'email'],
-                    ['name'=>'contact_phone','label'=>'Contact Phone','placeholder'=>'Enter Phone'],
-                    ['name'=>'whatsapp_phone','label'=>'Whatsapp Phone','placeholder'=>'Enter Whatsapp'],
-                    ['name'=>'price','label'=>'Price','placeholder'=>'Enter Price'],
 
-                    ] as $field)
+
+                    {{-- District --}}
                     <div class="col-12 col-md-4 mt-1">
-                        <label class="form-label">{{ $field['label'] }}</label>
-                        @if(($field['type'] ?? '') == 'textarea')
-                        <textarea name="{{ $field['name'] }}" class="form-control form-control-sm"
-                            placeholder="{{ $field['placeholder'] }}">{{ $post->{$field['name']} }}</textarea>
-                        @else
-                        <input type="{{ $field['type'] ?? 'text' }}" name="{{ $field['name'] }}"
-                            class="form-control form-control-sm"
-                            placeholder="{{ $field['placeholder'] }}"
-                            value="{{ $post->{$field['name']} }}">
-                        @endif
-                        @error($field['name'])
+                        <label class="form-label">District</label>
+                        <input type="text" name="district" class="form-control form-control-sm"
+                            placeholder="Enter District" value="{{ $post->district }}">
+                        @error('district')
                         <span class="text-danger small">{{ $message }}</span>
                         @enderror
                     </div>
-                    @endforeach
 
-                    {{-- Price Type (separate dropdown) --}}
+                    <div class="col-12 col-md-4 mt-1">
+                        <label class="form-label">City</label>
+                        <input type="text" name="city" class="form-control form-control-sm"
+                            placeholder="Enter City" value="{{ $post->city }}">
+                        @error('city')
+                        <span class="text-danger small">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="col-12 col-md-4 mt-1">
+                        <label class="form-label">Street</label>
+                        <input type="text" name="street" class="form-control form-control-sm"
+                            placeholder="Enter Street" value="{{ $post->street }}">
+                        @error('street')
+                        <span class="text-danger small">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="col-12 col-md-4 mt-1">
+                        <label class="form-label">Ad Title</label>
+                        <input type="text" name="ad_title" class="form-control form-control-sm"
+                            placeholder="Enter Ad Title" value="{{ $post->ad_title }}">
+                        @error('ad_title')
+                        <span class="text-danger small">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="col-12 col-md-4 mt-1">
+                        <label class="form-label">Description</label>
+                        <textarea name="ad_description" class="form-control form-control-sm"
+                            placeholder="Enter Description">{{ $post->ad_description }}</textarea>
+                        @error('ad_description')
+                        <span class="text-danger small">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+
+                    <div class="col-12 col-md-4 mt-1">
+                        <label class="form-label">Price</label>
+                        <input type="text" name="price" class="form-control form-control-sm"
+                            placeholder="Enter Price" value="{{ $post->price }}">
+                        @error('price')
+                        <span class="text-danger small">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+
                     <div class="col-12 col-md-4 mt-1 price-section">
                         <label class="form-label">Price Type</label>
                         <select name="price_type" id="price_type" class="form-select form-select-sm">
@@ -248,8 +266,34 @@
                         @enderror
                     </div>
 
+                    <div class="col-12 col-md-4 mt-1">
+                        <label class="form-label">Bedrooms</label>
+                        <input type="number" name="bedrooms" class="form-control form-control-sm"
+                            placeholder="Enter Bedrooms" value="{{ $post->bedrooms }}">
+                        @error('bedrooms')
+                        <span class="text-danger small">{{ $message }}</span>
+                        @enderror
+                    </div>
 
                     <div class="col-12 col-md-4 mt-1">
+                        <label class="form-label">Bathrooms</label>
+                        <input type="number" name="bathrooms" class="form-control form-control-sm"
+                            placeholder="Enter Bathrooms" value="{{ $post->bathrooms }}">
+                        @error('bathrooms')
+                        <span class="text-danger small">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="col-12 col-md-4 mt-1">
+                        <label class="form-label">Area</label>
+                        <input type="text" name="area" class="form-control form-control-sm"
+                            placeholder="Enter Area" value="{{ $post->area }}">
+                        @error('area')
+                        <span class="text-danger small">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                                        <div class="col-12 col-md-4 mt-1">
                         <label class="form-label">Land Area</label>
                         <select name="land_area" class="form-select form-select-sm">
                             <option value="">Select Land Area</option>
@@ -265,7 +309,26 @@
                     </div>
 
 
-                    {{-- Status --}}
+                    <div class="col-12 col-md-4 mt-1">
+                        <label class="form-label">Floor Area</label>
+                        <input type="text" name="floor_area" class="form-control form-control-sm"
+                            placeholder="Enter Floor Area" value="{{ $post->floor_area }}">
+                        @error('floor_area')
+                        <span class="text-danger small">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+
+                    <div class="col-12 col-md-4 mt-1">
+                        <label class="form-label">Number of Floors</label>
+                        <input type="number" name="num_floors" class="form-control form-control-sm"
+                            placeholder="Enter Floors" value="{{ $post->num_floors }}">
+                        @error('num_floors')
+                        <span class="text-danger small">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                                        {{-- Status --}}
                     <div class="col-12 col-md-4 mt-1">
                         <label class="form-label">Status</label>
                         <select name="status" class="form-select form-select-sm">
@@ -277,18 +340,54 @@
                         </select>
                     </div>
 
-                    {{-- Price Unit --}}
+
+                    {{-- Features --}}
                     <div class="col-12 col-md-4 mt-1">
-                        <label class="form-label">Price Unit</label>
-                        <select name="price_unit" class="form-select form-select-sm">
-                            @foreach(['LKR','USD','EUR'] as $unit)
-                            <option value="{{ $unit }}" {{ $post->price_unit == $unit ? 'selected' : '' }}>
-                                {{ $unit }}
-                            </option>
-                            @endforeach
-                        </select>
+                        <label class="form-label">Features</label>
+                        <textarea name="features" class="form-control form-control-sm" placeholder="Enter Features">{{ old('features', $post->features) }}</textarea>
+                        @error('features')
+                        <span class="text-danger small">{{ $message }}</span>
+                        @enderror
                     </div>
 
+
+                                        <div class="col-12 col-md-4 mt-1">
+                        <label class="form-label">Contact Name</label>
+                        <input type="text" name="contact_name" class="form-control form-control-sm"
+                            placeholder="Enter Name" value="{{ $post->contact_name }}">
+                        @error('contact_name')
+                        <span class="text-danger small">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="col-12 col-md-4 mt-1">
+                        <label class="form-label">Contact Email</label>
+                        <input type="email" name="contact_email" class="form-control form-control-sm"
+                            placeholder="Enter Email" value="{{ $post->contact_email }}">
+                        @error('contact_email')
+                        <span class="text-danger small">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="col-12 col-md-4 mt-1">
+                        <label class="form-label">Contact Phone</label>
+                        <input type="text" name="contact_phone" class="form-control form-control-sm"
+                            placeholder="Enter Phone" value="{{ $post->contact_phone }}">
+                        @error('contact_phone')
+                        <span class="text-danger small">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="col-12 col-md-4 mt-1">
+                        <label class="form-label">Whatsapp Phone</label>
+                        <input type="text" name="whatsapp_phone" class="form-control form-control-sm"
+                            placeholder="Enter Whatsapp" value="{{ $post->whatsapp_phone }}">
+                        @error('whatsapp_phone')
+                        <span class="text-danger small">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    
                     {{-- Images Section --}}
                     <div class="col-12 mt-3">
                         <label class="form-label fw-bold">Images</label>
@@ -362,16 +461,50 @@
                         {{-- New Videos Preview --}}
                         <div class="row g-2 mt-2" id="newVideosPreview"></div>
                     </div>
-                    {{-- Features --}}
+
+
+
+
+
+
+
                     <div class="col-12 col-md-4 mt-1">
-                        <label class="form-label">Features</label>
-                        <textarea name="features" class="form-control form-control-sm" placeholder="Enter Features">{{ old('features', $post->features) }}</textarea>
-                        @error('features')
+                        <label class="form-label">Commercial Type</label>
+                        <input type="text" name="commercial_type" class="form-control form-control-sm"
+                            placeholder="Enter Type" value="{{ $post->commercial_type }}">
+                        @error('commercial_type')
                         <span class="text-danger small">{{ $message }}</span>
                         @enderror
                     </div>
 
-                    {{-- Amenities --}}
+                                        <div class="col-12 col-md-4 mt-1">
+                        <label class="form-label">Floor Level</label>
+                        <input type="text" name="floor_level" class="form-control form-control-sm"
+                            placeholder="Enter Floor Level" value="{{ $post->floor_level }}">
+                        @error('floor_level')
+                        <span class="text-danger small">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="col-12 col-md-4 mt-1">
+                        <label class="form-label">Size</label>
+                        <input type="text" name="size" class="form-control form-control-sm"
+                            placeholder="Enter Size" value="{{ $post->size }}">
+                        @error('size')
+                        <span class="text-danger small">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="col-12 col-md-4 mt-1">
+                        <label class="form-label">Location</label>
+                        <input type="text" name="location" class="form-control form-control-sm"
+                            placeholder="Enter Location" value="{{ $post->location }}">
+                        @error('location')
+                        <span class="text-danger small">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                   {{-- Amenities --}}
                     <div class="col-12 col-md-4 mt-1">
                         <label class="form-label">Amenities</label>
                         <textarea name="amenities" class="form-control form-control-sm" placeholder="Enter Amenities">{{ old('amenities', $post->amenities) }}</textarea>
@@ -380,8 +513,17 @@
                         @enderror
                     </div>
 
-
-
+                                        {{-- Price Unit --}}
+                    <div class="col-12 col-md-4 mt-1">
+                        <label class="form-label">Price Unit</label>
+                        <select name="price_unit" class="form-select form-select-sm">
+                            @foreach(['LKR','USD','EUR'] as $unit)
+                            <option value="{{ $unit }}" {{ $post->price_unit == $unit ? 'selected' : '' }}>
+                                {{ $unit }}
+                            </option>
+                            @endforeach
+                        </select>
+                    </div>
 
 
                     {{-- Checkboxes --}}
