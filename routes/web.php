@@ -241,3 +241,7 @@ Route::prefix('superadmin')->name('superadmin.')->group(function () {
 Route::patch('/advertisers/update/{id}', [SuperAdminController::class, 'updateAdvertiser'])->name('advertisers.update');
     Route::delete('/advertisers/delete/{id}', [SuperAdminController::class, 'deleteAdvertiser'])->name('advertisers.delete');
 });
+
+Route::prefix('superadmin')->name('superadmin.')->group(function () {
+    Route::resource('premium', \App\Http\Controllers\SuperAdmin\PremiumPackageController::class);
+});
